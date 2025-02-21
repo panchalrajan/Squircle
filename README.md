@@ -22,14 +22,14 @@ A highly customizable SwiftUI package for creating smooth, continuous curves bet
 Add this package to your Xcode project using Swift Package Manager:
 
 1. In Xcode, select `File` → `Add Packages...`
-2. Enter the package URL: `https://github.com/yourusername/Squircle.git`
+2. Enter the package URL: `https://github.com/panchalrajan/Squircle.git`
 3. Choose `Up to Next Major Version` with `1.0.0`
 
 Or add it to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/yourusername/Squircle.git", from: "1.0.0")
+    .package(url: "https://github.com/panchalrajan/Squircle.git", from: "1.0.0")
 ]
 ```
 
