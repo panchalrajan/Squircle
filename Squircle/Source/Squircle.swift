@@ -11,21 +11,20 @@ struct Squircle: Shape {
     var cornerRadiusFactor: CGFloat
     var smoothFactor: CGFloat = 1
     var edgeCurvatureMultiplier: CGFloat = 1
-    var maxRadiusDivisor: CGFloat = 1
-    var radiusMultiplier: CGFloat = 1
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
-        let maxRadius = min(rect.width, rect.height) / maxRadiusDivisor
-        let radius = cornerRadiusFactor * maxRadius * radiusMultiplier
+        let maxRadius = min(rect.width, rect.height)
+        let radius = cornerRadiusFactor * maxRadius
+        let smootheningFactor = radius * smoothFactor
         let edgeCurvature = radius * edgeCurvatureMultiplier
  
         let cornerControlPoints = [
-            CGPoint(x: rect.maxX - radius * smoothFactor, y: rect.minY + radius * smoothFactor),
-            CGPoint(x: rect.maxX - radius * smoothFactor, y: rect.maxY - radius * smoothFactor),
-            CGPoint(x: rect.minX + radius * smoothFactor, y: rect.maxY - radius * smoothFactor),
-            CGPoint(x: rect.minX + radius * smoothFactor, y: rect.minY + radius * smoothFactor)
+            CGPoint(x: rect.maxX - smootheningFactor, y: rect.minY + smootheningFactor),
+            CGPoint(x: rect.maxX - smootheningFactor, y: rect.maxY - smootheningFactor),
+            CGPoint(x: rect.minX + smootheningFactor, y: rect.maxY - smootheningFactor),
+            CGPoint(x: rect.minX + smootheningFactor, y: rect.minY + smootheningFactor)
         ]
 
         let edgeControlPoints = [

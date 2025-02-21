@@ -49,7 +49,7 @@ struct CodeSheetView: View {
                 }
             }
         }
-        .presentationDetents([.medium])
+        .presentationDetents([.medium, .large])
     }
 }
 
